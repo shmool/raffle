@@ -1,12 +1,12 @@
 <form (ngSubmit)="submit()" autocomplete="off">
   <div class="form-group">
-    <label>Name</label><input required [(ngModel)]="name" class="form-control">
+    <label>Name</label><input required [(ngModel)]="participant.name" class="form-control">
   </div>
   <div class="form-group">
-    <label>e-mail</label><input required type="email" [(ngModel)]="email" class="form-control">
+    <label>e-mail</label><input required type="email" [(ngModel)]="participant.email" class="form-control">
   </div>
   <div class="form-group">
-    <label>Comments</label><textarea rows="5" [(ngModel)]="comments" class="form-control"></textarea>
+    <label>Comments</label><textarea rows="5" [(ngModel)]="participant.comments" class="form-control"></textarea>
   </div>
   <button class="btn btn-success">Submit</button>
 </form>

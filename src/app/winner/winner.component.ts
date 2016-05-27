@@ -1,4 +1,5 @@
 import {Component, OnInit, EventEmitter} from '@angular/core';
+import {RaffleService} from '../services/raffle.service';
 
 @Component({
   moduleId: module.id,
@@ -13,7 +14,7 @@ export class WinnerComponent implements OnInit {
   submitted: boolean;
   win = new EventEmitter<{ winner }>();
 
-  constructor() {
+  constructor(private raffleService: RaffleService) {
   }
 
   ngOnInit() {
@@ -22,9 +23,7 @@ export class WinnerComponent implements OnInit {
 
   submit() {
     this.winner.submitted = true;
-    let winners = JSON.parse(window.localStorage.getItem('winners'));
-    winners.push(this.winner);
-    window.localStorage.setItem('winners', JSON.stringify(winners));
+    this.raffleService.submitWinner(this.winner);
     this.win.emit(this.winner);
   }
 

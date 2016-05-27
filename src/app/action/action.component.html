@@ -7,13 +7,5 @@
 
 <h3>Winners:</h3>
 <ol class="members-list">
-  <li *ngFor="let winner of winners">{{winner.name}} {{winner|json}}</li>
-</ol>
-
-<button class="btn btn-sm btn-warning" (click)="show = !show">{{ show ? 'hide' : 'show'}} members</button>
-
-<ol *ngIf="show" class="members-list">
-  <li *ngFor="let member of members">
-    {{ member.name }} - {{ member.email }}
-  </li>
+  <li *ngFor="let winner of winners">{{winner.name}}</li>
 </ol>

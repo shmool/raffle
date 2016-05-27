@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {RaffleService, RaffleParticipant} from '../services/raffle.service';
 
 @Component({
   moduleId: module.id,
@@ -7,29 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['application-form.component.css']
 })
 export class ApplicationFormComponent implements OnInit {
-  name: string;
-  email: string;
-  comments: string;
+  participant:RaffleParticipant;
 
-  constructor() {}
+  constructor(private raffleService:RaffleService) {
+  }
 
   ngOnInit() {
-    if (!window.localStorage.getItem('raffle')) {
-      window.localStorage.setItem('raffle', '[]');
-    }
+    this.reset();
   }
 
   submit() {
-    let members = JSON.parse(window.localStorage.getItem('raffle'));
-    members.push({name: this.name, email: this.email, comments: this.comments});
-    window.localStorage.setItem('raffle', JSON.stringify(members));
+    this.raffleService.submitParticipant(this.participant);
     this.reset()
   }
 
   reset() {
-    this.name = '';
-    this.email = '';
-    this.comments = '';
+    this.participant = {
+      name: '',
+      email: '',
+      comments: ''
+    }
   }
 
 }
