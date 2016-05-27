@@ -1,0 +1,5 @@
+<div class="winner">
+  <h1>The Winner Is:</h1>
+  <h2>{{ winner.name }}</h2>
+  <button *ngIf="!winner.submitted" class="btn btn-success" (click)="submit()">I'm here!</button>
+</div>

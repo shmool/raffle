@@ -1,0 +1,19 @@
+<div class="win-button">
+  <button class="btn btn-lg btn-success" (click)="win()">Go!</button>
+</div>
+
+<raffle-winner *ngIf="winner" [winner]="winner" (win)="updateWinners()"></raffle-winner>
+
+
+<h3>Winners:</h3>
+<ol class="members-list">
+  <li *ngFor="let winner of winners">{{winner.name}} {{winner|json}}</li>
+</ol>
+
+<button class="btn btn-sm btn-warning" (click)="show = !show">{{ show ? 'hide' : 'show'}} members</button>
+
+<ol *ngIf="show" class="members-list">
+  <li *ngFor="let member of members">
+    {{ member.name }} - {{ member.email }}
+  </li>
+</ol>

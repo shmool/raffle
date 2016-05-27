@@ -1,3 +1,9 @@
-<h1>
-  {{title}}
-</h1>
+<div class="main">
+  <div class="routing-buttons">
+    <button class="btn btn-info" (click)="goTo('form')">Apply</button>
+    <button class="btn btn-danger" (click)="goTo('raffle')">Raffle</button>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
+
